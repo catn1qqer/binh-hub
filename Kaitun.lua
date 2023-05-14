@@ -1,5 +1,4 @@
-SelectToolWeapon = "Combat"
-_G.Team = "Marines" -- "Pirates"
+_G.Team = "Pirates" -- "Marines"
 
 function TP(P1)
     Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
@@ -56,6 +55,8 @@ function TP(P)
 end
 
 -- gui // line 364 to continue
+
+SelectToolWeapon = "Combat"
 
 -- Instances:
 
@@ -315,11 +316,11 @@ ToggleUIButton.MouseButton1Click:Connect(function()
     if toggleState then
         print("on")
         ToggleUIButton.Text = "close"
-        game:GetService("Players").unthuyed.PlayerGui.ScreenGui.Frame.Visible = true
+        game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.Frame.Visible = true
     else
         print("off")
         ToggleUIButton.Text = "open"
-        game:GetService("Players").unthuyed.PlayerGui.ScreenGui.Frame.Visible = false
+        game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.Frame.Visible = false
     end
 end)
 
@@ -1249,11 +1250,6 @@ end)
         end)
     end)
 
-    
-
-
-
-    
     spawn(function()
         while wait(.1) do
             if AutoKaitan then
@@ -1296,7 +1292,6 @@ end)
         end
     end)
 
-    
 	spawn(function()
 		pcall(function()
 			while wait() do
@@ -1337,7 +1332,6 @@ end)
 		end)
 	end)
 
-    
 function CheckLevel()
     local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
     if OldWorld then
@@ -1909,7 +1903,6 @@ spawn(function()
     end)
 end)
 
-
 spawn(function()
     pcall(function()
         game:GetService("RunService").Heartbeat:Connect(function()
@@ -2044,7 +2037,6 @@ spawn(function()
 end)
 end)
 
-
 spawn(function()
     pcall(function()
         game:GetService("RunService").Stepped:Connect(function()
@@ -2066,7 +2058,6 @@ function EquipWeapon(ToolSe)
         game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
     end
 end
-
 
 --distande Auto Farm
 
@@ -2463,7 +2454,6 @@ if AutoKaitan then
     end
 end
 
-
 PlayerName = {}
 for i,v in pairs(game.Players:GetChildren()) do  
 	table.insert(PlayerName ,v.Name)
@@ -2479,7 +2469,6 @@ Number = math.random(1, 1000000)
 if AutoKaitan then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
 end
-
 
 spawn(function()
 	pcall(function()
@@ -2625,19 +2614,42 @@ spawn(function()
 	end
 end)
 
-spawn(function()
-	while wait(.1) do
-		if AutoKaitan then 
-			if game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+_G.thuybuy = true
 
-			else
-				local args = {
-					[1] = "Buso"
-				}
-				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-			end
-		end
-	end
+task.spawn(function()
+    local player = game:GetService("Players").LocalPlayer
+    local beli = player.Data.Beli
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local commF = replicatedStorage.Remotes.CommF_
+
+    while wait() do
+        if _G.thuybuy then
+            local function buyHaki(hakiType)
+                local args = {
+                    [1] = "BuyHaki",
+                    [2] = hakiType
+                }
+                commF:InvokeServer(unpack(args))
+            end
+            
+            local function buyKenTalk(action)
+                local args = {
+                    [1] = "KenTalk",
+                    [2] = action
+                }
+                commF:InvokeServer(unpack(args))
+            end
+
+            if beli.Value >= 300000 and beli.Value < 750000 then
+                buyHaki("Buso")
+                buyHaki("Geppo")
+                buyHaki("Soru")
+            elseif beli.Value >= 750000 then
+                buyKenTalk("Start")
+                buyKenTalk("Buy")
+            end
+        end
+    end
 end)
 
 local Client = game.Players.LocalPlayer
