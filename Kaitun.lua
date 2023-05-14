@@ -8,8 +8,6 @@ local serv = win:Server("Binh Hub kaitun", "")
 
 local page1 = serv:Channel("Kaitun")
 
-
-
 function TP(P1)
     Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance < 250 then
@@ -164,14 +162,22 @@ end)
             end
         end
     end)
-
+ 
 page1:Toggle("Auto Stats", _G.AutoStats, function(vu)
-    while true do
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee")
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense")
-    end
+    _G.AutoStats = vu
 end)
 
+spawn(function() -- only for sea 1, co the se lam cho sea 2 va 3 vi tui thay great tree ma nang moi melee la chet.
+	while wait() do
+		if _G.AutoStats then
+			if game:GetService("Players").LocalPlayer.Data.Stats.Melee.Level.Value < 2400 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee")
+			else
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense")			
+			end
+		end
+	end
+end)
 
 local placeId = game.PlaceId
 Magnet = true
