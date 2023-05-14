@@ -1,14 +1,6 @@
 SelectToolWeapon = "Combat"
 _G.Team = "Marines" -- "Pirates"
 
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
-
-local win = DiscordLib:Window("Ui Discord | Binh Hub")
-
-local serv = win:Server("Binh Hub kaitun", "")
-
-local page1 = serv:Channel("Kaitun")
-
 function TP(P1)
     Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance < 250 then
@@ -63,6 +55,316 @@ function TP(P)
 	):Play()
 end
 
+-- gui // line 364 to continue
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Username = Instance.new("TextLabel")
+local Welcome = Instance.new("TextLabel")
+local Main = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local Status = Instance.new("TextLabel")
+local Level = Instance.new("TextLabel")
+local Beli = Instance.new("TextLabel")
+local Fragments = Instance.new("TextLabel")
+local DefendStatus = Instance.new("TextLabel")
+local SwordStatus = Instance.new("TextLabel")
+local Status_2 = Instance.new("TextLabel")
+local MeleeStatus = Instance.new("TextLabel")
+local FruitStatus = Instance.new("TextLabel")
+local GunStatus = Instance.new("TextLabel")
+local Brand = Instance.new("TextLabel")
+local ToggleUIButton = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+Frame.Position = UDim2.new(0.5, -375, 0.5, -200)
+Frame.Size = UDim2.new(0, 750, 0, 400)
+
+UICorner.Parent = Frame
+
+Username.Name = "Username"
+Username.Parent = Frame
+Username.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Username.BackgroundTransparency = 1.000
+Username.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Username.Position = UDim2.new(0.0226666667, 0, 0.0945651978, 0)
+Username.Size = UDim2.new(0, 327, 0, 31)
+Username.Font = Enum.Font.GothamBold
+Username.Text = game.Players.LocalPlayer.Name
+Username.TextColor3 = Color3.fromRGB(255, 255, 255)
+Username.TextScaled = true
+Username.TextSize = 54.000
+Username.TextWrapped = true
+Username.TextXAlignment = Enum.TextXAlignment.Left
+
+Welcome.Name = "Welcome"
+Welcome.Parent = Frame
+Welcome.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Welcome.BackgroundTransparency = 1.000
+Welcome.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Welcome.Position = UDim2.new(0.0226666648, 0, 0.0550000034, 0)
+Welcome.Size = UDim2.new(0, 155, 0, 11)
+Welcome.Font = Enum.Font.Gotham
+Welcome.Text = "cut tay vui ve nhe,"
+Welcome.TextColor3 = Color3.fromRGB(255, 255, 255)
+Welcome.TextSize = 20.000
+Welcome.TextXAlignment = Enum.TextXAlignment.Left
+
+Main.Name = "Main"
+Main.Parent = Frame
+Main.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+Main.Position = UDim2.new(0.50666666, -375, 0.69749999, -200)
+Main.Size = UDim2.new(0, 739, 0, 317)
+
+UICorner_2.Parent = Main
+
+Status.Name = "Status"
+Status.Parent = Main
+Status.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Status.BackgroundTransparency = 1.000
+Status.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Status.Position = UDim2.new(0.0157419499, 0, 0.0426901802, 0)
+Status.Size = UDim2.new(0, 111, 0, 36)
+Status.Font = Enum.Font.GothamBold
+Status.Text = "Status"
+Status.TextColor3 = Color3.fromRGB(255, 255, 255)
+Status.TextScaled = true
+Status.TextSize = 54.000
+Status.TextWrapped = true
+Status.TextXAlignment = Enum.TextXAlignment.Left
+
+Level.Name = "Level"
+Level.Parent = Main
+Level.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Level.BackgroundTransparency = 1.000
+Level.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Level.Position = UDim2.new(0.0159007721, 0, 0.155000016, 0)
+Level.Size = UDim2.new(0, 155, 0, 24)
+Level.Font = Enum.Font.Gotham
+Level.Text = "Level : 2450"
+Level.TextColor3 = Color3.fromRGB(255, 255, 255)
+Level.TextSize = 20.000
+Level.TextXAlignment = Enum.TextXAlignment.Left
+
+Beli.Name = "Beli"
+Beli.Parent = Main
+Beli.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Beli.BackgroundTransparency = 1.000
+Beli.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Beli.Position = UDim2.new(0.0159007721, 0, 0.230000019, 0)
+Beli.Size = UDim2.new(0, 155, 0, 24)
+Beli.Font = Enum.Font.Gotham
+Beli.Text = "Beli : 69420223"
+Beli.TextColor3 = Color3.fromRGB(255, 255, 255)
+Beli.TextSize = 20.000
+Beli.TextXAlignment = Enum.TextXAlignment.Left
+
+Fragments.Name = "Fragments"
+Fragments.Parent = Main
+Fragments.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Fragments.BackgroundTransparency = 1.000
+Fragments.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Fragments.Position = UDim2.new(0.014547593, 0, 0.305000007, 0)
+Fragments.Size = UDim2.new(0, 190, 0, 24)
+Fragments.Font = Enum.Font.Gotham
+Fragments.Text = "Fragments : 420420"
+Fragments.TextColor3 = Color3.fromRGB(255, 255, 255)
+Fragments.TextSize = 20.000
+Fragments.TextXAlignment = Enum.TextXAlignment.Left
+
+DefendStatus.Name = "DefendStatus"
+DefendStatus.Parent = Main
+DefendStatus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DefendStatus.BackgroundTransparency = 1.000
+DefendStatus.BorderColor3 = Color3.fromRGB(27, 42, 53)
+DefendStatus.Position = UDim2.new(0.0159007739, 0, 0.608125031, 0)
+DefendStatus.Size = UDim2.new(0, 191, 0, 24)
+DefendStatus.Font = Enum.Font.Gotham
+DefendStatus.Text = "Defend :"
+DefendStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
+DefendStatus.TextSize = 20.000
+DefendStatus.TextXAlignment = Enum.TextXAlignment.Left
+
+SwordStatus.Name = "SwordStatus"
+SwordStatus.Parent = Main
+SwordStatus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SwordStatus.BackgroundTransparency = 1.000
+SwordStatus.BorderColor3 = Color3.fromRGB(27, 42, 53)
+SwordStatus.Position = UDim2.new(0.014547593, 0, 0.683125019, 0)
+SwordStatus.Size = UDim2.new(0, 190, 0, 24)
+SwordStatus.Font = Enum.Font.Gotham
+SwordStatus.Text = "Sword :"
+SwordStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
+SwordStatus.TextSize = 20.000
+SwordStatus.TextXAlignment = Enum.TextXAlignment.Left
+
+Status_2.Name = "Status"
+Status_2.Parent = Main
+Status_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Status_2.BackgroundTransparency = 1.000
+Status_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Status_2.Position = UDim2.new(0.0157419499, 0, 0.4208152, 0)
+Status_2.Size = UDim2.new(0, 111, 0, 36)
+Status_2.Font = Enum.Font.GothamBold
+Status_2.Text = "Stats"
+Status_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Status_2.TextScaled = true
+Status_2.TextSize = 54.000
+Status_2.TextWrapped = true
+Status_2.TextXAlignment = Enum.TextXAlignment.Left
+
+MeleeStatus.Name = "MeleeStatus"
+MeleeStatus.Parent = Main
+MeleeStatus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MeleeStatus.BackgroundTransparency = 1.000
+MeleeStatus.BorderColor3 = Color3.fromRGB(27, 42, 53)
+MeleeStatus.Position = UDim2.new(0.0159007739, 0, 0.533125043, 0)
+MeleeStatus.Size = UDim2.new(0, 190, 0, 24)
+MeleeStatus.Font = Enum.Font.Gotham
+MeleeStatus.Text = "Melee :"
+MeleeStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
+MeleeStatus.TextSize = 20.000
+MeleeStatus.TextXAlignment = Enum.TextXAlignment.Left
+
+FruitStatus.Name = "FruitStatus"
+FruitStatus.Parent = Main
+FruitStatus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FruitStatus.BackgroundTransparency = 1.000
+FruitStatus.BorderColor3 = Color3.fromRGB(27, 42, 53)
+FruitStatus.Position = UDim2.new(0.014547593, 0, 0.833124995, 0)
+FruitStatus.Size = UDim2.new(0, 190, 0, 24)
+FruitStatus.Font = Enum.Font.Gotham
+FruitStatus.Text = "Fruit :"
+FruitStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
+FruitStatus.TextSize = 20.000
+FruitStatus.TextXAlignment = Enum.TextXAlignment.Left
+
+GunStatus.Name = "GunStatus"
+GunStatus.Parent = Main
+GunStatus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GunStatus.BackgroundTransparency = 1.000
+GunStatus.BorderColor3 = Color3.fromRGB(27, 42, 53)
+GunStatus.Position = UDim2.new(0.0159007739, 0, 0.758125126, 0)
+GunStatus.Size = UDim2.new(0, 189, 0, 24)
+GunStatus.Font = Enum.Font.Gotham
+GunStatus.Text = "Gun :"
+GunStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
+GunStatus.TextSize = 20.000
+GunStatus.TextXAlignment = Enum.TextXAlignment.Left
+
+Brand.Name = "Brand"
+Brand.Parent = Frame
+Brand.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Brand.BackgroundTransparency = 1.000
+Brand.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Brand.Position = UDim2.new(0.825333357, 0, 0.0175000001, 0)
+Brand.Size = UDim2.new(0, 125, 0, 15)
+Brand.Font = Enum.Font.GothamBold
+Brand.Text = "catn1qqer x Binh Hub"
+Brand.TextColor3 = Color3.fromRGB(57, 57, 57)
+Brand.TextSize = 12.000
+Brand.TextXAlignment = Enum.TextXAlignment.Right
+
+ToggleUIButton.Name = "ToggleUIButton"
+ToggleUIButton.Parent = ScreenGui
+ToggleUIButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ToggleUIButton.Position = UDim2.new(0.159199998, 0, 0.25920248, 0)
+ToggleUIButton.Size = UDim2.new(0, 70, 0, 70)
+ToggleUIButton.Font = Enum.Font.IndieFlower
+ToggleUIButton.Text = "close"
+ToggleUIButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleUIButton.TextSize = 41.000
+ToggleUIButton.TextWrapped = true
+ToggleUIButton.Visible = true
+
+UICorner_10.Parent = ToggleUIButton
+-- code
+
+_G.loopMemayDi = true
+
+local updateStatus = coroutine.create(function() -- ngu qua ma. huuh
+    while _G.loopMemayDi do
+        GunStatus.Text = "Gun : "..game.Players.LocalPlayer.Data.Stats.Gun.Level.Value
+        FruitStatus.Text = "Fruit : "..game.Players.LocalPlayer.Data.Stats["Demon Fruit"].Level.Value
+        MeleeStatus.Text = "Melee : "..game.Players.LocalPlayer.Data.Stats.Melee.Level.Value
+        SwordStatus.Text = "Sword : "..game.Players.LocalPlayer.Data.Stats.Sword.Level.Value
+        DefendStatus.Text = "Defense : "..game.Players.LocalPlayer.Data.Stats.Defense.Level.Value
+        Beli.Text = "Current Beli : "..game.Players.LocalPlayer.Data.Beli.Value
+        Fragments.Text = "Fragments : "..game.Players.LocalPlayer.Data.Fragments.Value
+        Level.Text = "Current Level : "..game.Players.LocalPlayer.Data.Level.Value
+        wait(1)
+    end
+end)
+
+coroutine.resume(updateStatus)
+
+local toggleState = true
+
+ToggleUIButton.MouseButton1Click:Connect(function()
+    toggleState = not toggleState -- Toggling the state
+    if toggleState then
+        print("on")
+        ToggleUIButton.Text = "close"
+        game:GetService("Players").unthuyed.PlayerGui.ScreenGui.Frame.Visible = true
+    else
+        print("off")
+        ToggleUIButton.Text = "open"
+        game:GetService("Players").unthuyed.PlayerGui.ScreenGui.Frame.Visible = false
+    end
+end)
+
+local function drag()
+	local script = Instance.new('LocalScript', ToggleUIButton)
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(drag)()
+
+-- Main code
+
 spawn(function()
     while task.wait() do
         if game.Players.LocalPlayer.Team == nil then
@@ -113,26 +415,23 @@ UseCode("Axiore")
 UseCode("TantaiGaming")
 UseCode("STRAWHATMAINE") 
 
-page1:Toggle("Auto Kaitan", _G.AutoKaitan, function(vu)
+warn("redeemed")
+
+    vu = true
     AutoKaitan = vu
     _G.AutoFarm = vu
 
 	if _G.AutoFarm and SelectToolWeapon == "" then
-		DiscordLib:Notification("AutoFarm","SelectWeapon First","Okay")
+		print("select weapon first")
 	else
 		Auto_Farm = vu
 		SelectMonster = ""
 		if vu == false then
 			wait(1)
 			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-else
-    ESPPlayer = vu
-	while ESPPlayer do wait()
-		UpdatePlayerChams()
+    end
 end
-end
-end
-end)
+
     spawn(function()
         while wait(.5) do
             if AutoKaitan and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
@@ -214,9 +513,7 @@ end)
         end
     end)
  
-page1:Toggle("Auto Stats", _G.AutoStats, function(vu)
-    _G.AutoStats = vu
-end)
+_G.AutoStats = true
 
 spawn(function() -- only for sea 1, co the se lam cho sea 2 va 3 vi tui thay great tree ma nang moi melee la chet.
 	while wait() do
@@ -1685,8 +1982,6 @@ spawn(function()
     end
 end)
 
-
-
 spawn(function()
     pcall(function()
         while game:GetService("RunService").Heartbeat:wait() do
@@ -2146,16 +2441,6 @@ spawn(function()
     end
 end)
 
-
-page1:Button("Remove Sound Attack", function()
-    pcall(function()
-		game:GetService("ReplicatedStorage").Assets.GUI:Destroy()
-		game:GetService("ReplicatedStorage").Assets.SlashHit:Destroy()
-		game:GetService("ReplicatedStorage").Effect.Container:Destroy()
-        game:GetService("ReplicatedStorage").Util.Sound:Destroy()
-	end)
-end)
-
 if AutoKaitan then
     CheckBarto = vu
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Warrior Helmet") then
@@ -2164,11 +2449,11 @@ if AutoKaitan then
         Success = true
     end
     if Success and CheckBarto == true then
-        DiscordLib:Notification("Auto Quest Bartilo","Successfully","Ok")
+        print("success ok")
     elseif CheckBarto == true and MiscFarmWeapon == "" then
-        DiscordLib:Notification("Auto Quest Bartilo","SelectWeapon First","Okay")
+        print("fuck you")
     elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress","Bartilo") == 3 and CheckBarto == true then
-        DiscordLib:Notification("Auto Quest Bartilo","Successfully","Ok")
+        print("success ok")
     else
         AutoBartilo = vu
         if vu == false then
@@ -2190,44 +2475,6 @@ local function round(n)
 	return math.floor(tonumber(n) + 0.5)
 end
 Number = math.random(1, 1000000)
-function UpdatePlayerChams()
-	for i,v in pairs(game:GetService'Players':GetChildren()) do
-		pcall(function()
-			if not isnil(v.Character) then
-				if ESPPlayer then
-					if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
-						local bill = Instance.new('BillboardGui',v.Character.Head)
-						bill.Name = 'NameEsp'..Number
-						bill.ExtentsOffset = Vector3.new(0, 1, 0)
-						bill.Size = UDim2.new(1,200,1,30)
-						bill.Adornee = v.Character.Head
-						bill.AlwaysOnTop = true
-						local name = Instance.new('TextLabel',bill)
-						name.Font = "GothamBold"
-						name.FontSize = "Size14"
-						name.TextWrapped = true
-						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
-						name.Size = UDim2.new(1,0,1,0)
-						name.TextYAlignment = 'Top'
-						name.BackgroundTransparency = 1
-						name.TextStrokeTransparency = 0.5
-						if v.Team == game.Players.LocalPlayer.Team then
-							name.TextColor3 = Color3.new(0,255,0)
-						else
-							name.TextColor3 = Color3.new(255,0,0)
-						end
-					else
-						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
-					end
-				else
-					if v.Character.Head:FindFirstChild('NameEsp'..Number) then
-						v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
-					end
-				end
-			end
-		end)
-	end
-end
 
 if AutoKaitan then
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
@@ -2339,6 +2586,7 @@ spawn(function()
 	end)
 end)
 
+--[[ ancient old fucking ahh
 if AutoKaitan then
     while true do
     local args = {
@@ -2349,7 +2597,7 @@ if AutoKaitan then
 	game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Visible = true
 end
 end
-
+]]
 
 spawn(function()
 	while wait() do
@@ -2375,115 +2623,6 @@ spawn(function()
             end
 		end 
 	end
-end)
-
-
-page1:Button("Server Hop", function()
-	DiscordLib:Notification("Hop Server", "Wait For Teleport", "Ok")
-	Teleport()
-end)
-
-page1:Button("Hop Lower Server",function(value)
-    local maxplayers, gamelink, goodserver, data_table = math.huge, "https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"
-        if not _G.FailedServerID then _G.FailedServerID = {} end
-
-        local function serversearch()
-            data_table = game:GetService"HttpService":JSONDecode(game:HttpGetAsync(gamelink))
-            for _, v in pairs(data_table.data) do
-                pcall(function()
-                    if type(v) == "table" and v.id and v.playing and tonumber(maxplayers) > tonumber(v.playing) and not table.find(_G.FailedServerID, v.id) then
-                        maxplayers = v.playing
-                        goodserver = v.id
-                    end
-                end)
-            end
-        end
-
-        function getservers()
-            pcall(serversearch)
-            for i, v in pairs(data_table) do
-                if i == "nextPageCursor" then
-                    if gamelink:find"&cursor=" then
-                        local a = gamelink:find"&cursor="
-                        local b = gamelink:sub(a)
-                        gamelink = gamelink:gsub(b, "")
-                    end
-                    gamelink = gamelink .. "&cursor=" .. v
-                    pcall(getservers)
-                end
-            end
-        end
-
-        pcall(getservers)
-        wait()
-        if goodserver == game.JobId or maxplayers == #game:GetService"Players":GetChildren() - 1 then
-        end
-        table.insert(_G.FailedServerID, goodserver)
-        game:GetService"TeleportService":TeleportToPlaceInstance(game.PlaceId, goodserver)
-end)
-
-page1:Button("Rejoin Server", function()
-	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").localPlayer)
-end)
-
-page1:Button("FPS Boost", function()
-if not game:IsLoaded() then repeat wait() until game:IsLoaded() end
-	if hookfunction and setreadonly then
-		local mt = getrawmetatable(game)
-		local old = mt.__newindex
-		setreadonly(mt, false)
-		local sda
-		sda = hookfunction(old, function(t, k, v)
-			if k == "Material" then
-				if v ~= Enum.Material.Neon and v ~= Enum.Material.Plastic and v ~= Enum.Material.ForceField then v = Enum.Material.Plastic end
-			elseif k == "TopSurface" then v = "Smooth"
-			elseif k == "Reflectance" or k == "WaterWaveSize" or k == "WaterWaveSpeed" or k == "WaterReflectance" then v = 0
-			elseif k == "WaterTransparency" then v = 1
-			elseif k == "GlobalShadows" then v = false end
-			return sda(t, k, v)
-		end)
-		setreadonly(mt, true)
-	end
-	local g = game
-	local w = g.Workspace
-	local l = g:GetService"Lighting"
-	local t = w:WaitForChild"Terrain"
-	t.WaterWaveSize = 0
-	t.WaterWaveSpeed = 0
-	t.WaterReflectance = 0
-	t.WaterTransparency = 1
-	l.GlobalShadows = false
-	
-	function change(v)
-		pcall(function()
-			if v.Material ~= Enum.Material.Neon and v.Material ~= Enum.Material.Plastic and v.Material ~= Enum.Material.ForceField then
-				pcall(function() v.Reflectance = 0 end)
-				pcall(function() v.Material = Enum.Material.Plastic end)
-				pcall(function() v.TopSurface = "Smooth" end)
-			end
-		end)
-	end
-	
-	game.DescendantAdded:Connect(function(v)
-		pcall(function()
-			if v:IsA"Part" then change(v)
-			elseif v:IsA"MeshPart" then change(v)
-			elseif v:IsA"TrussPart" then change(v)
-			elseif v:IsA"UnionOperation" then change(v)
-			elseif v:IsA"CornerWedgePart" then change(v)
-			elseif v:IsA"WedgePart" then change(v) end
-		end)
-	end)
-	for i, v in pairs(game:GetDescendants()) do
-		pcall(function()
-			if v:IsA"Part" then change(v)
-			elseif v:IsA"MeshPart" then change(v)
-			elseif v:IsA"TrussPart" then change(v)
-			elseif v:IsA"UnionOperation" then change(v)
-			elseif v:IsA"CornerWedgePart" then change(v)
-			elseif v:IsA"WedgePart" then change(v) end
-		end)
-	end 
 end)
 
 spawn(function()
