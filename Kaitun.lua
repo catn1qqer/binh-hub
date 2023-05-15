@@ -1,4 +1,16 @@
+
+--[[
+
+    Kaitun or Cuttay, a phrase of a Roblox script that fully autofarms everything in Blox Fruits (game)
+    "Ơ! Thằng lồn này dùng cuttay à? Mới chơi có (1) tuần mà đã giàu như này rồi?"
+
+    Binh Hub Kaitun (catn1qqer)
+    Project started on 13/5/2023
+
+]]
+
 _G.Team = "Pirates" -- "Marines"
+_G.FPSBoost = false -- really fucked up the client but the good side is fps go wroom.
 
 function TP(P1)
     Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
@@ -892,7 +904,7 @@ function CheckQuest()
 			NameMon = "Dark Master"
 			CFrameQuest = CFrame.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
 			CFrameMon = CFrame.new(-5220.58594, 430.693298, -2278.17456, -0.925375521, 1.12086873e-08, 0.379051805, -1.05115507e-08, 1, -5.52320891e-08, -0.379051805, -5.50948407e-08, -0.925375521)
-		elseif MyLevel == 250 or MyLevel <= 274 then 
+		elseif MyLevel == 250 or MyLevel <= 275 then 
 			Ms = "Toga Warrior [Lv. 250]"
 			NaemQuest = "ColosseumQuest"
 			LevelQuest = 1
@@ -1694,7 +1706,7 @@ function CheckLevel()
             QuestLv = 2
             NameMon = "Gladiator"
             CFrameQ = CFrame.new(-1577.7890625, 7.4151420593262, -2984.4838867188)
-            CFrameMon = CFrame.new(-1521.3740234375, 81.203170776367, -3066.3139648438)
+            CFrameMon = CFrame.new(-1465.688, 7.786, -3136.755)
         elseif Lv == 300 or Lv <= 324 or SelectMonster == "Military Soldier [Lv. 300]" then -- Military Soldier
             Ms = "Military Soldier [Lv. 300]"
             NameQuest = "MagmaQuest"
@@ -2909,6 +2921,38 @@ task.spawn(function()
         end
     end
 end)
+
+if _G.FPSBoost then
+    local lighting = game.Lighting
+    lighting.GlobalShadows = false
+    lighting.FogStart = 0
+    lighting.FogEnd = 0
+    lighting.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+
+    for _,v in pairs(game:GetDescendants()) do
+        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA("Explosion") then
+            v.BlastPressure = 1
+            v.BlastRadius = 1
+        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+            v.Enabled = false
+        elseif v:IsA("MeshPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+        end
+    end
+
+    for _,e in pairs(lighting:GetChildren()) do
+        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+            e.Enabled = false
+        end
+    end
+end
 
 local Client = game.Players.LocalPlayer
 local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
