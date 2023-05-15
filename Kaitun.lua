@@ -66,7 +66,7 @@ function TP(P)
 	):Play()
 end
 
--- gui // line 364 to continue
+-- gui // line 662 to continue
 
 SelectToolWeapon = "Combat"
 
@@ -111,6 +111,8 @@ local Main = Instance.new("ImageLabel")
 local UICorner_6 = Instance.new("UICorner")
 local Game = Instance.new("TextLabel")
 local CreatorName = Instance.new("TextLabel")
+local Logo = Instance.new("ImageLabel")
+local LogoName = Instance.new("TextLabel")
 local ToggleUIButton = Instance.new("TextButton")
 local UICorner_10 = Instance.new("UICorner")
 
@@ -123,14 +125,14 @@ KaitunBinhHubGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Frame.Parent = KaitunBinhHubGUI
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.5, -516, 0.5, -291)
+Frame.Position = UDim2.new(0.499266863, -516, 0.498697907, -291)
 Frame.Size = UDim2.new(0, 1033, 0, 583)
 
 Status.Name = "Status"
 Status.Parent = Frame
 Status.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
-Status.Position = UDim2.new(0.011616651, 0, 0.269296736, 0)
-Status.Size = UDim2.new(0, 235, 0, 328)
+Status.Position = UDim2.new(0.011616651, 0, 0.399656951, 0)
+Status.Size = UDim2.new(0, 235, 0, 336)
 
 UICorner.Parent = Status
 
@@ -139,7 +141,7 @@ Account.Parent = Status
 Account.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Account.BackgroundTransparency = 1.000
 Account.BorderSizePixel = 0
-Account.Position = UDim2.new(0.118605182, 0, 0.0375265181, 0)
+Account.Position = UDim2.new(0.114349864, 0, 0.0405752994, 0)
 Account.Size = UDim2.new(0, 194, 0, 21)
 Account.Font = Enum.Font.GothamBold
 Account.Text = "Account"
@@ -228,7 +230,7 @@ Melee.BorderSizePixel = 0
 Melee.Position = UDim2.new(0.0377541408, 0, 0.522282481, 0)
 Melee.Size = UDim2.new(0, 222, 0, 18)
 Melee.Font = Enum.Font.GothamBold
-Melee.Text = "Melee"
+Melee.Text = "Melee :"
 Melee.TextColor3 = Color3.fromRGB(255, 255, 255)
 Melee.TextSize = 23.000
 Melee.TextWrapped = true
@@ -337,8 +339,6 @@ Brand.TextTransparency = 0.440
 Brand.TextWrapped = true
 Brand.TextXAlignment = Enum.TextXAlignment.Right
 
-local Player = game.Players.LocalPlayer
-
 Profile.Name = "Profile"
 Profile.Parent = Frame
 Profile.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -374,7 +374,7 @@ Username.BorderSizePixel = 0
 Username.Position = UDim2.new(0.447241038, 0, 0.528997242, 0)
 Username.Size = UDim2.new(0, 503, 0, 51)
 Username.Font = Enum.Font.GothamBold
-Username.Text = game.Players.LocalPlayer.Name
+Username.Text = "OnlyTwentyCharacters"
 Username.TextColor3 = Color3.fromRGB(255, 255, 255)
 Username.TextSize = 48.000
 Username.TextWrapped = true
@@ -409,7 +409,7 @@ UICorner_4.Parent = RobloxProfile
 Tabs.Name = "Tabs"
 Tabs.Parent = Frame
 Tabs.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
-Tabs.Position = UDim2.new(0.011616651, 0, 0.0668953657, 0)
+Tabs.Position = UDim2.new(0.011616651, 0, 0.193825036, 0)
 Tabs.Size = UDim2.new(0, 235, 0, 107)
 
 UICorner_5.Parent = Tabs
@@ -479,10 +479,10 @@ Game.Parent = Frame
 Game.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Game.BackgroundTransparency = 1.000
 Game.BorderSizePixel = 0
-Game.Position = UDim2.new(0.028073566, 0, 0.883361876, 0)
+Game.Position = UDim2.new(0.255566239, 0, 0.8730703, 0)
 Game.Size = UDim2.new(0, 200, 0, 27)
 Game.Font = Enum.Font.Gotham
-Game.Text = "sea"
+Game.Text = "Checking.."
 Game.TextColor3 = Color3.fromRGB(255, 255, 255)
 Game.TextSize = 23.000
 Game.TextWrapped = true
@@ -493,7 +493,7 @@ CreatorName.Parent = Frame
 CreatorName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 CreatorName.BackgroundTransparency = 1.000
 CreatorName.BorderSizePixel = 0
-CreatorName.Position = UDim2.new(0.028073566, 0, 0.909090877, 0)
+CreatorName.Position = UDim2.new(0.255566239, 0, 0.902229786, 0)
 CreatorName.Size = UDim2.new(0, 200, 0, 27)
 CreatorName.Font = Enum.Font.Gotham
 CreatorName.Text = "Gamer Robot Inc"
@@ -502,6 +502,28 @@ CreatorName.TextSize = 15.000
 CreatorName.TextTransparency = 0.350
 CreatorName.TextWrapped = true
 CreatorName.TextXAlignment = Enum.TextXAlignment.Left
+
+Logo.Name = "Logo"
+Logo.Parent = Frame
+Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Logo.Position = UDim2.new(0.0199410655, 0, 0.0274442546, 0)
+Logo.Size = UDim2.new(0, 78, 0, 78)
+Logo.Image = "http://www.roblox.com/asset/?id=13450463175"
+
+LogoName.Name = "LogoName"
+LogoName.Parent = Logo
+LogoName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LogoName.BackgroundTransparency = 1.000
+LogoName.BorderSizePixel = 0
+LogoName.Position = UDim2.new(1.17929673, 0, 0.0880808681, 0)
+LogoName.Size = UDim2.new(0, 124, 0, 70)
+LogoName.Font = Enum.Font.GothamBold
+LogoName.Text = "Binh Hub Kaitun"
+LogoName.TextColor3 = Color3.fromRGB(255, 255, 255)
+LogoName.TextSize = 23.000
+LogoName.TextWrapped = true
+LogoName.TextXAlignment = Enum.TextXAlignment.Left
 
 ToggleUIButton.Name = "ToggleUIButton"
 ToggleUIButton.Parent = KaitunBinhHubGUI
