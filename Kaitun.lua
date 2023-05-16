@@ -13,10 +13,9 @@ _G.FPSBoost = false -- really fucked up the client but the good side is fps go w
 
 getgenv().Config = {
     ["Discord"] = {
-        ["WebhookUrl"] = "", -- Chưa xong. Sẽ không hoạt động
+        ["WebhookUrl"] = "your_webhook_here",
         ["Content"] = "@everyone", -- @everyone or <@roleid/userid>, it can be just text.
-        ["BrandName"] = "",
-        ["ImageUrl"] = ""
+        ["Time"] = 60 -- Seconds
     },
     ["Autofarm"] = {
         ["BuySwords"] = true, -- xong
@@ -133,6 +132,64 @@ local Logo = Instance.new("ImageLabel")
 local LogoName = Instance.new("TextLabel")
 local ToggleUIButton = Instance.new("TextButton")
 local UICorner_10 = Instance.new("UICorner")
+
+-- Webhook
+
+local data = {
+    ["username"] = 'Binh Hub Notifier', -- haha NO.
+    ['content'] = DCSettings["Content"],
+    ["embeds"] = {
+        {
+            ["title"] = '**Binh Hub Account Status**', -- LMAO WTF
+            ["color"] = 5539744, -- color id		
+            ["type"] = "rich",
+            ["fields"] =  {
+                {
+                    ["name"] = "User Name",
+                    ["value"] = "||"..tostring(game.Players.LocalPlayer.Name).."||",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Level",
+                    ["value"] = tostring(game:GetService("Players").LocalPlayer.Data:FindFirstChild("Level").Value),
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Fragments",
+                    ["value"] = tostring(game:GetService("Players").LocalPlayer.Data:FindFirstChild("Fragments").Value),
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Bounty/Honor",
+                    ["value"] = tostring(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value),
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Beli",
+                    ["value"] = tostring(game:GetService("Players").LocalPlayer.Data:FindFirstChild("Beli").Value),
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Race",
+                    ["value"] = tostring(game:GetService("Players").LocalPlayer.Data:FindFirstChild("Race").Value),
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Status",
+                    ["value"] = "```sml\n"..tostring("Melee : "..game:GetService("Players").LocalPlayer.Data.Stats.Melee:WaitForChild("Level").Value .. 
+                        "\nDefense : "..game:GetService("Players").LocalPlayer.Data.Stats.Defense:WaitForChild("Level").Value .. 
+                        "\nSword : "..game:GetService("Players").LocalPlayer.Data.Stats.Sword:WaitForChild("Level").Value.. 
+                        "\nGun : "..game:GetService("Players").LocalPlayer.Data.Stats.Gun:WaitForChild("Level").Value .. 
+                        "\nDevil Fruit : "..game:GetService("Players").LocalPlayer.Data.Stats["Demon Fruit"]:WaitForChild("Level").Value).."```",
+                    ["inline"] = true
+                },
+            },
+            ["footer"] = {
+                ["text"] = "Script còn mới, đôi khi vài thứ thiếu. Mong bạn thông cảm.".."\nTime".." : "..os.date("%c").." ("..os.date("%X")..")",
+            },
+        }
+    },
+}
 
 --Properties:
 
@@ -2793,6 +2850,18 @@ local updateStatus = coroutine.create(function() -- ngu qua ma. huuh
 end)
 
 coroutine.resume(updateStatus)
+
+local url = DCSettings["WebhookUrl"]
+
+spawn(function()
+	while wait(DCSettings["Time"]) do
+        local newdata = game:GetService("HttpService"):JSONEncode(data)
+        local headers = {["content-type"] = "application/json"}
+        request = http_request or request or HttpPost or syn.request
+        local webhook = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+        request(webhook)
+	end
+end)
 
 spawn(function()
 	while wait() do
