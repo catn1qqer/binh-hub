@@ -1,4 +1,3 @@
-
 --[[
 
     Kaitun or Cuttay, a phrase of a Roblox script that fully autofarms everything in Blox Fruits (game)
@@ -1565,9 +1564,11 @@ end)
         end)
     end)
 
+    _G.level700CheckSea2ThieuNang = true
+
     spawn(function() -- vẫn còn dùng được.
         while wait(.1) do
-            if AutoKaitan then
+            if _G.level700CheckSea2ThieuNang then
                 local Lv = game.Players.LocalPlayer.Data.Level.Value
                 if Lv >= 700 and OldWorld then
                     AutoKaitan = false
