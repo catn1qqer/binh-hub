@@ -13,6 +13,7 @@ _G.FPSBoost = false -- really fucked up the client but the good side is fps go w
 
 getgenv().Config = {
     ["Discord"] = {
+        ["Enabled"] = false,
         ["WebhookUrl"] = "your_webhook_here",
         ["Content"] = "@everyone", -- @everyone or <@roleid/userid>, it can be just text.
         ["Time"] = 60 -- Seconds
@@ -2854,12 +2855,13 @@ coroutine.resume(updateStatus)
 local url = DCSettings["WebhookUrl"]
 
 spawn(function()
-	while wait(DCSettings["Time"]) do
+	while DCSettings["Enabled"] do
         local newdata = game:GetService("HttpService"):JSONEncode(data)
         local headers = {["content-type"] = "application/json"}
         request = http_request or request or HttpPost or syn.request
         local webhook = {Url = url, Body = newdata, Method = "POST", Headers = headers}
         request(webhook)
+        wait(DCSettings["Time"])
 	end
 end)
 
