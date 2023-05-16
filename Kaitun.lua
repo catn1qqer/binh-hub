@@ -1565,12 +1565,15 @@ end)
         end)
     end)
 
-    spawn(function()
+    spawn(function() -- vẫn còn dùng được.
         while wait(.1) do
             if AutoKaitan then
                 local Lv = game.Players.LocalPlayer.Data.Level.Value
                 if Lv >= 700 and OldWorld then
                     AutoKaitan = false
+                    _G.Auto_Farm = false
+                    _G.AutoFarm = false
+                    Auto_Farm = false
                     if game.Workspace.Map.Ice.Door.CanCollide == true and game.Workspace.Map.Ice.Door.Transparency == 0 then
                         TP2(CFrame.new(4851.8720703125, 5.6514348983765, 718.47094726563))
                         wait(.5)
