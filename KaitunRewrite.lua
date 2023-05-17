@@ -1042,3 +1042,45 @@ spawn(function()
         end
     end
 end)
+
+-- [Bosses]
+
+spawn(function() -- vẫn còn dùng được.
+    while wait(.1) do
+        local Lv = game.Players.LocalPlayer.Data.Level.Value
+            if Lv >= 700 and OldWorld then
+                AutoKaitan = false
+                    if game.Workspace.Map.Ice.Door.CanCollide == true and game.Workspace.Map.Ice.Door.Transparency == 0 then
+                        TP(CFrame.new(4851.8720703125, 5.6514348983765, 718.47094726563))
+                        wait(.5)
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress","Detective")
+                        EquipWeapon("Key")
+                        TP2(CFrame.new(1347.7124, 37.3751602, -1325.6488))
+                        wait(3)
+                    elseif game.Workspace.Map.Ice.Door.CanCollide == false and game.Workspace.Map.Ice.Door.Transparency == 1 then
+                        if game:GetService("Workspace").Enemies:FindFirstChild("Ice Admiral [Lv. 700] [Boss]") then
+                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                if v.Name == "Ice Admiral [Lv. 700] [Boss]" and v.Humanoid.Health > 0 then
+                                    repeat game:GetService("RunService").Heartbeat:wait()
+                                        pcall(function()
+                                            EquipWeapon(SelectToolWeapon)
+                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 20, 10))
+                                            v.HumanoidRootPart.CanCollide = false
+                                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                            v.HumanoidRootPart.Transparency = .8
+                                            game:GetService("VirtualUser"):CaptureController()
+                                            game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 870),workspace.CurrentCamera.CFrame)
+                                        end)
+                                    until v.Humanoid.Health <= 0 or not v.Parent
+                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
+                                end
+                            end
+                        else
+                            TP(CFrame.new(1347.7124, 37.3751602, -1325.6488))
+                        end
+                    else
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
+                    end
+                end
+            end
+        end)
