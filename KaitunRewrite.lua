@@ -8,16 +8,15 @@ _G.Settings = {
 		["Auto Saber"] = true,
 
 		["Auto Buy Ablility"] = true,
-        ["Auto Buy Items"] = true,
-        ["Auto Buy Melee"] = true,
+        	["Auto Buy Items"] = true,
+        	["Auto Buy Melee"] = true,
 
-        ["Auto Buso"] = true, -- gives you FREE BIG BLACK HANDS (femboys love it.)
+        	["Auto Buso"] = true, -- gives you FREE BIG BLACK HANDS (femboys love it.)
 	},
 
 	Client = {
 		["FPSLock"] = 60,
-        ['balls remover'] = false,
-		['Disable Rendering'] = false, -- Also known as, White Screen!
+        	['balls remover'] = false,
 	},
 }
 
@@ -191,8 +190,6 @@ if _G.Settings.Client['balls remover'] then
 end
 
 setfpscap(_G.Settings.Client['FPSLock'])
-
-game.RunService:Set3dRenderingEnabled(not _G.Settings.Client['Disable Rendering'])
 
 -- [Auto Buy Items]
 spawn(function() -- Melee
@@ -465,7 +462,7 @@ function CheckLevel()
             NameMon = "Fishman Warrior"
             CFrameQ = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
             CFrameMon = CFrame.new(60844.10546875, 98.462875366211, 1298.3985595703)
-			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if AutoKaitan and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 			end
         elseif Lv == 400 or Lv <= 449 or SelectMonster == "Fishman Commando [Lv. 400]" then -- Fishman Commando
@@ -475,7 +472,7 @@ function CheckLevel()
             NameMon = "Fishman Commando"
             CFrameQ = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
             CFrameMon = CFrame.new(61738.3984375, 64.207321166992, 1433.8375244141)
-			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if AutoKaitan and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
 			end
         elseif Lv == 450 or Lv <= 474 or SelectMonster == "God's Guard [Lv. 450]" then -- God's Guard
@@ -485,7 +482,7 @@ function CheckLevel()
             NameMon = "God's Guard"
             CFrameQ = CFrame.new(-4721.8603515625, 845.30297851563, -1953.8489990234)
             CFrameMon = CFrame.new(-4628.0498046875, 866.92877197266, -1931.2352294922)
-			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if AutoKaitan and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
 			end
         elseif Lv == 475 or Lv <= 524 or SelectMonster == "Shanda [Lv. 475]" then -- Shanda
@@ -495,7 +492,7 @@ function CheckLevel()
             NameMon = "Shanda"
             CFrameQ = CFrame.new(-7863.1596679688, 5545.5190429688, -378.42266845703)
             CFrameMon = CFrame.new(-7685.1474609375, 5601.0751953125, -441.38876342773)
-			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+			if AutoKaitan and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
 			end
         elseif Lv == 525 or Lv <= 549 or SelectMonster == "Royal Squad [Lv. 525]" then -- Royal Squad
@@ -983,9 +980,9 @@ Type = 1
 spawn(function()
     while wait(.1) do
         if Type == 1 then
-            Farm_Mode = CFrame.new(0, 10,10)
+            Farm_Mode = CFrame.new(0, 10, 0)
         elseif Type == 2 then
-            Farm_Mode = CFrame.new(0, 10,10)
+            Farm_Mode = CFrame.new(0, 10, 0)
         end
     end
 end)
