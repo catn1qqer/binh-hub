@@ -1,3 +1,15 @@
+--[[
+
+    Kaitun or Cuttay, a phrase of a Roblox script that fully autofarms everything in Blox Fruits (game)
+    "Ơ! Thằng lồn này dùng cuttay à? Mới chơi có (1) tuần mà đã giàu như này rồi?"
+
+    Binh Hub Kaitun (catn1qqer)
+    Project started on 13/5/2023
+    
+    Rewrite by @thuy
+
+]]
+
 -- // Config // --
 
 _G.Team = "Pirates"
@@ -8,15 +20,16 @@ _G.Settings = {
 		["Auto Saber"] = true,
 
 		["Auto Buy Ablility"] = true,
-        	["Auto Buy Items"] = true,
-        	["Auto Buy Melee"] = true,
+        ["Auto Buy Items"] = true,
+        ["Auto Buy Melee"] = true,
 
-        	["Auto Buso"] = true, -- gives you FREE BIG BLACK HANDS (femboys love it.)
+        ["Auto Buso"] = true, -- gives you FREE BIG BLACK HANDS (femboys love it.)
 	},
 
 	Client = {
 		["FPSLock"] = 60,
-        	['balls remover'] = false,
+        ['balls remover'] = false,
+		['Disable Rendering'] = false, -- Also known as, White Screen!
 	},
 }
 
@@ -190,6 +203,8 @@ if _G.Settings.Client['balls remover'] then
 end
 
 setfpscap(_G.Settings.Client['FPSLock'])
+
+game.RunService:Set3dRenderingEnabled(not _G.Settings.Client['Disable Rendering'])
 
 -- [Auto Buy Items]
 spawn(function() -- Melee
