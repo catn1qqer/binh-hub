@@ -20,16 +20,15 @@ _G.Settings = {
 		["Auto Saber"] = true,
 
 		["Auto Buy Ablility"] = true,
-        ["Auto Buy Items"] = true,
-        ["Auto Buy Melee"] = true,
+        	["Auto Buy Items"] = true,
+        	["Auto Buy Melee"] = true,
 
-        ["Auto Buso"] = true, -- gives you FREE BIG BLACK HANDS (femboys love it.)
+        	["Auto Buso"] = true, -- gives you FREE BIG BLACK HANDS (femboys love it.)
 	},
 
 	Client = {
 		["FPSLock"] = 60,
-        ['balls remover'] = false,
-		['Disable Rendering'] = false, -- Also known as, White Screen!
+        	['balls remover'] = false,
 	},
 }
 
@@ -203,8 +202,6 @@ if _G.Settings.Client['balls remover'] then
 end
 
 setfpscap(_G.Settings.Client['FPSLock'])
-
-game.RunService:Set3dRenderingEnabled(not _G.Settings.Client['Disable Rendering'])
 
 -- [Auto Buy Items]
 spawn(function() -- Melee
