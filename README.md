@@ -1,8 +1,3 @@
 # binh-hub-rac
-All Script Powered By Binh Hub :
+owner gets leaked for planning to share synapse v3 breaking tos
 
-Binh Hub Auto Bounty
-Binh Hub X
-Binh Hub Kaitun
-Binh Hub One Click PvP
-Binh Hub Misc
